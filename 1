@@ -22,3 +22,24 @@ public:
         return list;
     }
 };
+
+//or A BETTER SOLUTION
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+
+        unordered_map <int,int> MAP;
+        
+        for(int i = 0;i<nums.size();i++)
+        {
+            int complement = target - nums[i];
+            if(MAP.find(complement) != MAP.end())
+            {
+                return {MAP[complement],i};
+            }
+            MAP.insert({nums[i],i});
+        }
+        return{};
+    }
+};
